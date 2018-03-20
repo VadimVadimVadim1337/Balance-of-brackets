@@ -1,17 +1,23 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdio.h>
 int main()
 {
-	int choice=0;
-	int the_chosen[4];
+	char choice;
+	char the_chosen[4];
+	int i;
+	///char* k=NULL;
+	char k[6];
+	
 
-    for (int i=0; i<4; i++)
+    for (i=0; i<4; i++)
     	the_chosen[i]=i+1;
     /*Заполение массива для выдачи цифры 
     какой выбор пользователь сделал*/
 
 	printf("This program checks balance braces, parentheses, brackets, and tags in your code \n\n");
 
-    while (choice != 5){
+    while (choice != '5'){
         printf ("Какие скобки вы хотите ?\n");
         printf ("1)Breaces: {}\n");
         printf ("2)Parentheses: ( )\n");
@@ -20,44 +26,53 @@ int main()
         printf ("5)Готово \n");
         printf ("6)Отмена {}\n");
         
+        i=i+1;
+
         if (the_chosen!=0) //показывает какой вариант выбран
         printf("Вы ввели: %d\n", the_chosen[1]);
-    
-        printf("Ввод: ");
-        scanf ("%d", &choice);
-    
+    	printf("Ввод: ");
+    	scanf ("%s", &choice);
+
+		    	
         switch (choice){
-            case 1:
+            case '1':
             printf("Один\n");
             //the_chosen=1;
             break;
     
-            case 2:
+            case '2':
             printf("Два\n");
             //the_chosen=2;
             break;
 
-            case 3:
+            case '3':
             printf("Три\n");
             //the_chosen=3;
             break;
 
-            case 4:
+            case '4':
             printf("Четыре\n");
              //the_chosen=4;
             break;
 
             /* Тут нет 5 ибо эта цифра завершает while*/
             
-            case 6:
+            case '6':
             printf("Шесть\n");
             //the_chosen=6;
             break;
         }
+        
 
+              	   strncat (k, &choice, 1);//копируем в k символы из choice
+        	   
+             	printf("%s", k);
+             	
+        	
+              
         printf("\n\n"); //служит для отступа после while(choice)
 
-    }
+    } 
 
 	return 0;
 }
