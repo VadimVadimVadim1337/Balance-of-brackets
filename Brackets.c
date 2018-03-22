@@ -6,10 +6,10 @@ int main()
 	char choice;
 	char the_chosen[4];
 	int i;
-	///char* k=NULL;
-	char k[6];
 	
-
+	char k[]={'\0',',','\0'};
+	char l[2]={',','\0'};
+	
     for (i=0; i<4; i++)
     	the_chosen[i]=i+1;
     /*Заполение массива для выдачи цифры 
@@ -29,11 +29,12 @@ int main()
         i=i+1;
 
         if (the_chosen!=0) //показывает какой вариант выбран
-        printf("Вы ввели: %d\n", the_chosen[1]);
-    	printf("Ввод: ");
+        //printf("Вы ввели: %d\n", the_chosen[1]);
+    	printf("Вы ввели: "); //было Ввод
     	scanf ("%s", &choice);
 
-		    	
+		
+    	
         switch (choice){
             case '1':
             printf("Один\n");
@@ -63,13 +64,15 @@ int main()
             break;
         }
         
-
-              	   strncat (k, &choice, 1);//копируем в k символы из choice
+        	   			          	   
+        	   strncat (k, &choice, 1);
         	   
-             	printf("%s", k);
+        	   strncat (k, l, 1);
+        	   
+        	   printf("%s", k);
+        	                
              	
-        	
-              
+        	              
         printf("\n\n"); //служит для отступа после while(choice)
 
     } 
