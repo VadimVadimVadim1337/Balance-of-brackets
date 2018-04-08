@@ -4,20 +4,21 @@
 int main()
 {
 	char choice;
-	char the_chosen[4];
-	int i,j;
+	char the_chosen[6]; /* ИИИИИИИИИИИСПОЛЬЗУЙ ЭТОТ МАССИВ*/
+	/* Тут шесть ибо 1,2,3,4 =7 символов , а массив начинается с 0*/
+	int i,j=0;
 	char z[]={','};
 	char k[]={'\0'};
-	j=0;
+
 
     for (i=0; i<4; i++) 
-    	the_chosen[i]=i+1;
+    	the_chosen[i]=9;
     	
         
     /*Заполение массива для выдачи цифры 
     какой выбор пользователь сделал*/
 
-	printf("This program checks balance braces, parentheses, brackets, and tags in your code \n\n");
+	printf("Эта программа проверяет сблансированность скобок\n\n");
 
     while (choice != '5') {
         printf ("Какие скобки вы хотите ?\n");
@@ -31,43 +32,16 @@ int main()
         
        if (the_chosen!=0) //показывает какой вариант выбран
         //printf("Вы ввели: %d\n", the_chosen[1]);
-    	printf("Вы ввели: "); //было Ввод
-    	scanf ("%s", &choice);
+        printf("Вы выбрали: "); 
 
-	j++;
 
-    	switch (choice){
-            case '1':
-            printf("Один\n");
-            //the_chosen=1;
-            break;
-    
-            case '2':
-            printf("Два\n");
-            //the_chosen=2;
-            break;
+            if (j==0)
+        	{
+        		printf("Вы пока что ничего не выбрали");
+        	} else
 
-            case '3':
-            printf("Три\n");
-            //the_chosen=3;
-            break;
 
-            case '4':
-            printf("Четыре\n");
-             //the_chosen=4;
-            break;
-
-            /* Тут нет 5 ибо эта цифра завершает while*/
-            
-            case '6':
-            printf("Шесть\n");
-            //the_chosen=6;
-            break;
-
-            printf("\n");
-            
-        }	
-        	if (j==1)
+            	if (j==1)
         	{
         		printf("%s",&choice);
         		strncat(k,&choice,1);
@@ -78,7 +52,40 @@ int main()
 		   	   printf("%s",k);
 		   	   printf("%s",&choice);
 		   	   strncat(k,&choice,1);
-		   }       
+		   }
+
+    	printf("\nВыберете: "); //было Ввод
+    	scanf ("%s", &choice);
+
+	j++;
+
+    	switch (choice){
+            case '1':
+
+            break;
+    
+            case '2':
+
+            break;
+
+            case '3':
+
+            break;
+
+            case '4':
+
+            break;
+
+            /* Тут нет 5 ибо эта цифра завершает while*/
+            
+            case '6':
+
+            break;
+
+            printf("\n");
+            
+        }	
+
                       
         printf("\n\n"); //служит для отступа после while(choice)
 
