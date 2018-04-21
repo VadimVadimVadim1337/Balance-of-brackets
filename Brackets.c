@@ -1,63 +1,115 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 int main()
 {
-	int choice=0;
-	int the_chosen[4];
+	char choice[2];
+	int i=0;
+	
+	char z[1];
+        char k[100]; 
+        z[0]=',';
+  	
+	printf("Эта программа проверяет сблансированность скобок\n\n");
 
-    for (int i=0; i<4; i++)
-    	the_chosen[i]=i+1;
-    /*Заполение массива для выдачи цифры 
-    какой выбор пользователь сделал*/
-
-	printf("This program checks balance braces, parentheses, brackets, and tags in your code \n\n");
-
-    while (choice != 5){
-        printf ("Какие скобки вы хотите ?\n");
+	
+    while (choice[0] != '5') {
+     
+    	printf ("Какие скобки вы хотите ?\n");
         printf ("1)Breaces: {}\n");
         printf ("2)Parentheses: ( )\n");
         printf ("3)Brackets: {}\n");
         printf ("4)Tags: < >\n");
         printf ("5)Готово \n");
-        printf ("6)Отмена {}\n");
+        printf ("6)Отмена \n");
         
-        if (the_chosen!=0) //показывает какой вариант выбран
-        printf("Вы ввели: %d\n", the_chosen[1]);
-    
-        printf("Ввод: ");
-        scanf ("%d", &choice);
-    
-        switch (choice){
-            case 1:
-            printf("Один\n");
-            //the_chosen=1;
+       
+        printf("\nВыберите: ");
+        scanf("%s",&choice[0]); 
+		
+		printf("\nВы выбрали: "); 
+    		       	
+        i++;
+			    			
+    			
+    			if ((choice[0] < '1') || (choice[0] > '6'))
+    			{
+    				printf("Выберите из списка!\n\n");
+    				i--;
+    				continue;
+    				
+    			}
+
+    			if ((i == 1) && (choice[0] == '5'))
+			    {
+			    	choice[0]='a';// любой символ
+			    	printf("Вы ничего не выбрали\n\n");
+			    	i--;
+			    	continue;
+			    }   
+			    else
+			    {
+			    	if (choice[0] == '5')
+					{
+					    printf("Выход из программы\n");
+						exit(EXIT_SUCCESS);
+					}
+			    }	
+
+			    if ((choice[0] == '6'))
+			    {
+			    	printf("Введите заново\n\n");
+			    	memset(k,0,100);//или strcpy(k,"");
+			    	i=0;
+			    	continue;
+			    }
+
+            	if (i==1)
+        		{
+        			printf("%c",choice[0]);
+        			strncat(k,choice,1);//или &choice[0]
+        		}   else
+			           
+		   		{
+		        	strncat(k,z,1);
+		        	printf("%s",k); 
+		        	printf("%c",choice[0]);// или %s choice
+		   	    	strncat(k,choice,1);//или &choice[0]
+
+		   		}
+
+    	   
+    	switch (choice[0])
+    	{
+            case '1':
+            
             break;
     
-            case 2:
-            printf("Два\n");
-            //the_chosen=2;
+            case '2':
+
             break;
 
-            case 3:
-            printf("Три\n");
-            //the_chosen=3;
+            case '3':
+
             break;
 
-            case 4:
-            printf("Четыре\n");
-             //the_chosen=4;
+            case '4':
+
             break;
 
             /* Тут нет 5 ибо эта цифра завершает while*/
             
-            case 6:
-            printf("Шесть\n");
-            //the_chosen=6;
+            case '6':
+
             break;
-        }
+
+            printf("\n"); 
+            
+        }	
 
         printf("\n\n"); //служит для отступа после while(choice)
 
-    }
+    } 
 
 	return 0;
 }
