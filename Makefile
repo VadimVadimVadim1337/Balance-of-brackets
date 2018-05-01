@@ -7,7 +7,7 @@ all: bin/balanc_br.exe bin/test
 
 
 
-bin/balanc_br.exe: build/main.o build/choise_brackets.o build/print_welcome_message.o
+bin/balanc_br.exe: build/main.o build/choise_brackets.o build/print_welcome_message.o build/choise_brackets.o
 	gcc $^ -o $@ $(CFLAGS)
 
 build/print_welcome_message.o: src/print_welcome_message.c
