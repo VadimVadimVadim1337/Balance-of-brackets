@@ -3,14 +3,6 @@ OBJ = gcc -c $< -o $@ $(CFLAGS)
 O=gcc -Wall -Werror -c
 .PHONY: all clean
 
-all:folder folder2 bin/balanc_br.exe
-
-folder:
-	mkdir build 
-
-folder2:
-	mkdir bin 
-
 bin/balanc_br.exe: build/main.o build/choise_brackets.o build/print_welcome_message.o
 	gcc $^ -o $@ $(CFLAGS)
 
@@ -27,5 +19,4 @@ build/choise_brackets.o: src/choise_brackets.c
 clean:
 	rm build/*.o
 	rm bin/*.exe
-	rm -R build
-	rm -R bin
+	
